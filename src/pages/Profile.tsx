@@ -104,24 +104,32 @@ const Profile: React.FC = () => {
             <div className="space-y-6">
               {/* Mobile tabs */}
               <div className="block lg:hidden">
-                <TabsList className="grid w-full grid-cols-4">
-                  <TabsTrigger value="profile" onClick={() => setActiveTab("profile")}>
-                    <User className="w-4 h-4 mb-1" />
-                    <span className="text-xs">Perfil</span>
-                  </TabsTrigger>
-                  <TabsTrigger value="history" onClick={() => setActiveTab("history")}>
-                    <History className="w-4 h-4 mb-1" />
-                    <span className="text-xs">Historial</span>
-                  </TabsTrigger>
-                  <TabsTrigger value="payment" onClick={() => setActiveTab("payment")}>
-                    <CreditCard className="w-4 h-4 mb-1" />
-                    <span className="text-xs">Pagos</span>
-                  </TabsTrigger>
-                  <TabsTrigger value="settings" onClick={() => setActiveTab("settings")}>
-                    <Settings className="w-4 h-4 mb-1" />
-                    <span className="text-xs">Config</span>
-                  </TabsTrigger>
-                </TabsList>
+                <Tabs value={activeTab} onValueChange={setActiveTab}>
+                  <TabsList className="grid w-full grid-cols-4">
+                    <TabsTrigger value="profile">
+                      <User className="w-4 h-4 mb-1" />
+                      <span className="text-xs">Perfil</span>
+                    </TabsTrigger>
+                    <TabsTrigger value="history">
+                      <History className="w-4 h-4 mb-1" />
+                      <span className="text-xs">Historial</span>
+                    </TabsTrigger>
+                    <TabsTrigger value="payment">
+                      <CreditCard className="w-4 h-4 mb-1" />
+                      <span className="text-xs">Pagos</span>
+                    </TabsTrigger>
+                    <TabsTrigger value="settings">
+                      <Settings className="w-4 h-4 mb-1" />
+                      <span className="text-xs">Config</span>
+                    </TabsTrigger>
+                  </TabsList>
+
+                  {/* Add TabsContent for each tab */}
+                  <TabsContent value="profile"></TabsContent>
+                  <TabsContent value="history"></TabsContent>
+                  <TabsContent value="payment"></TabsContent>
+                  <TabsContent value="settings"></TabsContent>
+                </Tabs>
               </div>
               
               {/* Profile Tab */}
